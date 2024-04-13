@@ -54,7 +54,17 @@
 
     <div>
         <x-input-label for="imagen" :value="__('Imagen')" />
-        <x-text-input id="imagen" class="block mt-1 w-full p-4" type="file " wire:model="imagen" />
+        <x-text-input id="imagen" class="block mt-1 w-full p-4" type="file " wire:model="imagen" accept="image/*" />
+
+       <div class="my-5">
+        @if ($imagen)
+
+        Imagen:
+        <img src="{{$imagen->temporaryUrl()}}" alt="">
+
+        @endif
+
+       </div>
         <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
 
     </div>
