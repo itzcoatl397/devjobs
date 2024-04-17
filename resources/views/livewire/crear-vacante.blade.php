@@ -56,7 +56,7 @@
         <x-input-label for="imagen" :value="__('Imagen')" />
         <x-text-input id="imagen" class="block mt-1 w-full p-4" type="file " wire:model="imagen" accept="image/*" />
 
-       <div class="my-5">
+       <div class="my-5 w-80">
         @if ($imagen)
 
         Imagen:

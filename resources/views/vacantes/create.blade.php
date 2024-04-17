@@ -13,6 +13,7 @@
 
                     <div class="md:flex md:justify-center p-5">
                         <livewire:crear-vacante>
+                            
                     </div>
                 </div>
             </div>
