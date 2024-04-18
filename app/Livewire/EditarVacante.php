@@ -21,13 +21,13 @@ class EditarVacante extends Component
     public function mount(Vacante $vacante)
     {
 
-        $this->titulo = $vacante->titulo;
+        foreach ($vacante->getAttributes() as $key => $value) {
+            if (property_exists($this, $key)) {
+                $this->$key = $value;
+            }
+        }
         $this->salario = $vacante->salario_id;
         $this->categoria = $vacante->categoria_id;
-        $this->empresa = $vacante->empresa;
-        $this->ultimo_dia = $vacante->ultimo_dia;
-        $this->descripcion = $vacante->descripcion;
-        $this->imagen = $vacante->imagen;
 
     }
     public function render()
