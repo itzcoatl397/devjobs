@@ -1,4 +1,4 @@
-<form class="md:w-1/2 space-y-5" wire:submit.prevent='crearVacante'>
+<form class="md:w-1/2 space-y-5" wire:submit.prevent='editarVacante'>
     <div>
         <x-input-label for="titulo" :value="__('Titulo Vacante')" />
         <x-text-input id="titulo" class="block mt-1 w-full" type="text "
@@ -28,8 +28,10 @@
         <select wire:model="categoria"  id="categoria" class="w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm">
         <option>-- Seleccione --</option>
             @foreach ($categorias as $categoria)
-            <option class="" value="{{$categoria->id}}
-                ">{{$categoria->categoria}}</option>
+            @if ($categoria->id ==$categoria->id)
+            <option class="" value="{{$categoria->id}}">{{$categoria->categoria}}</option>
+            @endif
+
             @endforeach
         </select>
 
