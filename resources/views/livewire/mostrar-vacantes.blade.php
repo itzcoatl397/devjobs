@@ -32,7 +32,7 @@
 
 
        </div>
-       <div class="flex justify-center mt-10 ">
+       <div class=" m-10 ">
            {{ $vacantes->links() }}
        </div>
 
