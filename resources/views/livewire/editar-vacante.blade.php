@@ -80,6 +80,6 @@
 
     </div>
     <x-primary-button class="w-full text-center justify-center">
-           Guardar Cambios
+           Guardar
         </x-primary-button>
 </form>
