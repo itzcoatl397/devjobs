@@ -16,7 +16,7 @@
                <a class="bg-slate-800 uppercase  mt-2 dark:bg-black py-2 px-4 rounded-lg text-white text-xs font-bold text-center " href="#">
                    Candidatos
                </a>
-               <a class="bg-blue-500 uppercase  mt-2 dark:bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center " href="#">
+               <a class="bg-blue-500 uppercase  mt-2 dark:bg-blue-800 py-2 px-4 rounded-lg text-white text-xs font-bold text-center " href="{{route('vacantes.edit', $vacante->id)}}">
                  Editar
                </a>
                <a class="bg-red-500 uppercase  mt-2 dark:bg-red-800 py-2 px-4 rounded-lg text-white text-xs font-bold  text-center" href="#">
