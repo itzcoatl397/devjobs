@@ -6,6 +6,7 @@ use App\Models\Categoria;
 use App\Models\Salario;
 use App\Models\Vacante;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class EditarVacante extends Component
 {
@@ -19,6 +20,10 @@ class EditarVacante extends Component
     public $descripcion;
 
     public $imagen;
+    public $imagen_nueva;
+
+    use WithFileUploads;
+
     protected $rules = [
         "titulo" => "required|string",
         "salario" => "required",
@@ -26,7 +31,7 @@ class EditarVacante extends Component
         "empresa" => "required",
         "ultimo_dia" => "required",
         "descripcion" => "required",
-
+        "imagen_nueva" => "nullable|image|max:1024",
 
 
     ];
@@ -49,6 +54,11 @@ class EditarVacante extends Component
     {
         $datos = $this->validate();
         // si hay un a nueva imagen
+        if ($this->imagen_nueva) {
+            $imagen = $this->imagen_nueva->store('public/vacantes');
+            $datos['imagen'] = str_replace('public/vacantes/', '', $imagen);
+
+        }
 
         $vacante = Vacante::find($this->id);
         $vacante->titulo = $datos["titulo"];
@@ -56,22 +66,11 @@ class EditarVacante extends Component
         $vacante->categoria_id = $datos["categoria"];
         $vacante->empresa = $datos["empresa"];
         $vacante->descripcion = $datos["descripcion"];
-
+        $vacante->imagen = $datos["imagen"] ?? $vacante->imagen;
         $vacante->save();
-
         session()->flash("mensaje", "La Vacante se Actualizo correctamente");
 
         return redirect()->route("vacantes.index", $this->id);
-
-
-
-
-
-
-        // asignar
-
-
-
     }
     public function render()
     {

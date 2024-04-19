@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vacante;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 
 class VacanteController extends Controller
@@ -48,6 +49,9 @@ class VacanteController extends Controller
     public function edit(Vacante $vacante)
     {
         //
+
+        Gate::authorize("update", $vacante);
+
 
         return view("vacantes.editar", [
             "vacante" => $vacante

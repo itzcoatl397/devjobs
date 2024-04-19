@@ -58,29 +58,29 @@
 
     <div>
         <x-input-label for="imagen" :value="__('Imagen')" />
-        <x-text-input id="imagen" class="block mt-1 w-full p-4" type="file " wire:model="imagen" accept="image/*" />
+        <x-text-input id="imagen" class="block mt-1 w-full p-4" type="file " wire:model="imagen_nueva" accept="image/*" />
 
         <div class="my-5 w-80" >
         <x-input-label for="imagen" :value="__('Imagen Actual')" />
         <img src="{{asset('./storage/vacantes/'.$imagen)}}" alt="">
 
 
-             <!-- {{-- @if ($imagen)
+            {{-- @if ($imagen)
 
         Imagen:
         <img src="{{$imagen->temporaryUrl()}}" alt="">
 
-        @endif --}} -->
+        @endif --}}
         </div>
        <div class="my-5 w-80">
-<!-- {{-- @if ($imagen)
+  @if ($imagen_nueva)
 
-        Imagen:
-        <img src="{{$imagen->temporaryUrl()}}" alt="">
+        Imagen Nueva:
+        <img src="{{$imagen_nueva->temporaryUrl()}}" alt="">
 
-        @endif --}} -->
+        @endif
        </div>
-        <x-input-error :messages="$errors->get('imagen')" class="mt-2" />
+        <x-input-error :messages="$errors->get('imagen_nueva')" class="mt-2" />
 
     </div>
     <x-primary-button class="w-full text-center justify-center">
